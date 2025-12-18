@@ -1,0 +1,15 @@
+<svg width="240" height="64" viewBox="0 0 240 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ADAM Lab</title>
+  <desc id="desc">Minimal wordmark for ADAM Lab</desc>
+  <rect width="240" height="64" rx="12" fill="#0f172a"/>
+  <rect x="8" y="8" width="224" height="48" rx="10" fill="url(#g)"/>
+  <text x="120" y="38" fill="#0f172a" font-family="Rajdhani, Inter, sans-serif" font-size="26" font-weight="700" text-anchor="middle" letter-spacing="4">ADAM LAB</text>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="50%" stop-color="#bfdbfe"/>
+      <stop offset="100%" stop-color="#c7d2fe"/>
+    </linearGradient>
+  </defs>
+</svg>
+
