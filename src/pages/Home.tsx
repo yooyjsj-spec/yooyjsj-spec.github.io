@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Cpu, Plane, Shield } from 'lucide-react';
-import { VideoHover } from '../components/VideoHover';
 import { Link } from 'react-router-dom';
 import { Layout } from '../components/Layout';
 import { ASSETS } from '../data/assets';
@@ -102,9 +101,13 @@ export const Home: React.FC = () => {
                 transition={{ duration: 0.8 }}
               >
                 <div className="relative rounded-2xl p-2 bg-white shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 group">
-                   <VideoHover 
+                  <video
                     src={ASSETS.VIDEOS.ABOUT_bg}
-                    className="aspect-video w-full rounded-xl bg-gray-100"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="aspect-video w-full rounded-xl bg-gray-100 object-cover"
                   />
                   {/* Optional caption if needed */}
                 </div>
