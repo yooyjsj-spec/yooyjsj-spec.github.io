@@ -92,7 +92,6 @@ export const Publications: React.FC = () => {
                   <div className="flex flex-col md:flex-row h-full">
                     {/* Image Section */}
                     <div className="md:w-48 lg:w-64 h-48 md:h-auto bg-gray-50 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-gray-100 flex items-center justify-center">
-                       {/* Placeholder for actual images since local files won't load in this preview */}
                        <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200" />
                        <img 
                           src={pub.image || ASSETS.JOURNALS.DEFAULT_COVER}
@@ -103,10 +102,8 @@ export const Publications: React.FC = () => {
                             if (e.currentTarget.src !== ASSETS.JOURNALS.DEFAULT_COVER) {
                                 e.currentTarget.src = ASSETS.JOURNALS.DEFAULT_COVER;
                             } else {
-                                // If default also fails, hide image and show icon
+                                // If default also fails, hide image
                                 e.currentTarget.style.display = 'none';
-                                e.currentTarget.parentElement?.classList.add('flex', 'items-center', 'justify-center');
-                                e.currentTarget.parentElement!.innerHTML = '<svg class="w-12 h-12 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>';
                             }
                           }}
                        />
