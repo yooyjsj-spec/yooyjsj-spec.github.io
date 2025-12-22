@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { Layout } from '../components/Layout';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, BookOpen, FileText, Award, Calendar, ChevronLeft, ChevronRight, Mic2 } from 'lucide-react';
+import { ExternalLink, BookOpen, FileText, Award, Calendar, ChevronLeft, ChevronRight, Mic } from 'lucide-react';
 import { journalData } from '../data/journals';
 import { patentData } from '../data/asset_patents';
 import { ASSETS } from '../data/assets';
@@ -80,7 +79,7 @@ export const Publications: React.FC = () => {
             {[
               { id: 'journals', label: 'Journals', icon: BookOpen },
               { id: 'patents', label: 'Patents', icon: Award },
-              { id: 'conferences', label: 'Conferences', icon: Mic2 }
+              { id: 'conferences', label: 'Conferences', icon: Mic }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -237,7 +236,7 @@ export const Publications: React.FC = () => {
               exit={{ opacity: 0, scale: 0.95 }}
               className="flex flex-col items-center justify-center py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-300"
             >
-              <Mic2 size={48} className="text-gray-300 mb-4" />
+              <Mic size={48} className="text-gray-300 mb-4" />
               <h3 className="text-xl font-bold text-gray-400">Conferences</h3>
               <p className="text-gray-400 mt-2">Conference data coming soon...</p>
             </motion.div>
