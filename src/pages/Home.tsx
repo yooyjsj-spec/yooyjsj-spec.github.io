@@ -37,7 +37,7 @@ export const Home: React.FC = () => {
                 ADAM LAB
               </h1>
               <p className="text-xl md:text-2xl text-gray-200 font-light max-w-2xl mb-10 leading-relaxed drop-shadow-md">
-                Bridging the gap between <span className="font-semibold text-white">Artificial Intelligence</span> and <span className="font-semibold text-white">Aerospace Defense Materials</span>.
+                <span className="font-semibold text-white">Advancing Aerospace </span> and <span className="font-semibold text-white">Defense Materials through Microstructural Design of Advanced Alloyss</span>.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/research" className="px-8 py-4 bg-white text-primary-900 rounded-lg font-medium shadow-lg hover:shadow-xl hover:bg-gray-50 transition-all flex items-center justify-center gap-2 group">

@@ -44,7 +44,7 @@ export interface CommunityItem {
   date: string;
   summary: string; // Short description for the card
   content?: string; // Full HTML/Text content for the expanded view
-  category: 'Award' | 'Conference' | 'Paper' | 'General' | 'Notice';
+  category: 'Award' | 'Conference' | 'Paper' | 'General' | 'Notice' | 'Gallery';
   link?: string; // External link
   image?: string;
 }
