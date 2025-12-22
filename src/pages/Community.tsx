@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Layout } from '../components/Layout';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -34,16 +35,72 @@ export const Community: React.FC = () => {
     }
   ];
 
-  // Placeholder Data for other tabs
+  // Notice Data with Content
   const notices: CommunityItem[] = [
-    { id: 'n1', title: '2025학년도 1학기 연구실 신입생 모집', date: '2024-11-01', summary: 'ADAM 연구실에서 열정적인 석/박사 통합과정 신입생을 모집합니다.', category: 'Notice' },
-    { id: 'n2', title: '연구실 하계 워크샵 안내', date: '2024-06-15', summary: '강원도 평창에서 진행되는 하계 워크샵 일정 및 세부 사항입니다.', category: 'Notice' },
+    { 
+      id: 'n1', 
+      title: '2025학년도 1학기 연구실 신입생 모집', 
+      date: '2024-11-01', 
+      summary: 'ADAM 연구실에서 열정적인 석/박사 통합과정 신입생을 모집합니다.', 
+      category: 'Notice',
+      content: `
+        <p class="mb-4 font-bold">ADAM Lab에서 2025학년도 1학기 대학원 신입생을 모집합니다.</p>
+        <ul class="list-disc pl-5 space-y-2 mb-4">
+          <li><strong>모집 과정:</strong> 석사과정, 박사과정, 석박사통합과정</li>
+          <li><strong>주요 연구 분야:</strong> AI 기반 소재 분석, 항공우주용 초합금 설계, 3D 프린팅 공정 최적화</li>
+          <li><strong>지원 자격:</strong> 신소재공학, 기계공학, 인공지능 관련 전공 학사 학위 소지자 (예정자 포함)</li>
+        </ul>
+        <p class="mb-4">관심 있는 학생은 설재복 교수님 이메일(jb.seol@kookmin.ac.kr)로 CV와 성적증명서를 첨부하여 연락 바랍니다.</p>
+        <p>열정 있는 학생들의 많은 지원 바랍니다.</p>
+      `
+    },
+    { 
+      id: 'n2', 
+      title: '연구실 하계 워크샵 안내', 
+      date: '2024-06-15', 
+      summary: '강원도 평창에서 진행되는 하계 워크샵 일정 및 세부 사항입니다.', 
+      category: 'Notice',
+      content: `
+        <p class="mb-4">2024학년도 ADAM Lab 하계 워크샵이 아래와 같이 진행됩니다.</p>
+        <ul class="list-disc pl-5 space-y-2 mb-4">
+          <li><strong>일시:</strong> 2024년 7월 10일 (수) ~ 7월 12일 (금)</li>
+          <li><strong>장소:</strong> 강원도 평창</li>
+          <li><strong>주요 일정:</strong> 상반기 연구 성과 발표, 초청 연사 세미나, 팀 빌딩 활동</li>
+        </ul>
+        <p>참석 인원은 6월 30일까지 명단을 확인해주시기 바랍니다.</p>
+      `
+    },
   ];
 
-  const galleryImages = [
-    { id: 'g1', title: 'TMS 2024 Conference', url: ASSETS.GALLERY.TMS_CONF },
-    { id: 'g2', title: 'Lab Group Photo', url: ASSETS.GALLERY.LAB_GROUP },
-    { id: 'g3', title: 'SEM Analysis Session', url: ASSETS.GALLERY.SEM_SESSION },
+  // Gallery Data structure updated to CommunityItem
+  const galleryItems: CommunityItem[] = [
+    { 
+      id: 'g1', 
+      title: 'TMS 2024 Conference', 
+      date: '2024-03-05',
+      summary: 'Presentation at TMS 2024 Annual Meeting.',
+      category: 'Gallery',
+      image: ASSETS.GALLERY.TMS_CONF,
+      content: 'Members of ADAM Lab attended the TMS 2024 Annual Meeting & Exhibition held in Orlando, Florida. We presented our latest findings on AI-driven microstructure analysis and had fruitful discussions with international researchers.'
+    },
+    { 
+      id: 'g2', 
+      title: 'Lab Group Photo', 
+      date: '2024-04-01',
+      summary: 'Annual group photo in front of the engineering building.',
+      category: 'Gallery',
+      image: ASSETS.GALLERY.LAB_GROUP,
+      content: 'ADAM Lab members gathered for the annual group photo. Celebrating the new semester and welcoming new researchers to our team.'
+    },
+    { 
+      id: 'g3', 
+      title: 'SEM Analysis Session', 
+      date: '2024-02-20',
+      summary: 'Conducting in-situ heating experiments.',
+      category: 'Gallery',
+      image: ASSETS.GALLERY.SEM_SESSION,
+      content: 'A hands-on session using the high-resolution Scanning Electron Microscope (SEM). Observing real-time phase transformation of superalloys under high-temperature conditions.'
+    },
   ];
 
   return (
@@ -102,7 +159,7 @@ export const Community: React.FC = () => {
                 >
                   {newsItems.map((item) => (
                     <motion.div
-                      layoutId={`card-${item.id}`}
+                      layoutId={`card-${item.id}`} // Dynamic morphing only for News
                       key={item.id}
                       onClick={() => setSelectedItem(item)}
                       className="bg-white rounded-2xl p-6 md:p-8 shadow-soft hover:shadow-soft-hover transition-all duration-300 border border-gray-100 cursor-pointer group relative overflow-hidden"
@@ -142,7 +199,7 @@ export const Community: React.FC = () => {
                   exit={{ opacity: 0, x: 20 }}
                   className="bg-white rounded-2xl shadow-soft border border-gray-100 overflow-hidden"
                 >
-                  <table className="w-full text-left">
+                  <table className="w-full text-left border-collapse">
                     <thead className="bg-gray-50 border-b border-gray-100 text-gray-500 uppercase text-xs font-semibold tracking-wider">
                       <tr>
                         <th className="px-6 py-4 w-24">No.</th>
@@ -152,9 +209,16 @@ export const Community: React.FC = () => {
                     </thead>
                     <tbody className="divide-y divide-gray-100">
                       {notices.map((notice, index) => (
-                        <tr key={notice.id} className="hover:bg-gray-50/50 transition-colors">
+                        <tr 
+                          key={notice.id} 
+                          onClick={() => setSelectedItem(notice)}
+                          className="hover:bg-primary-50/30 transition-colors cursor-pointer group"
+                        >
                           <td className="px-6 py-4 text-gray-400 font-mono text-sm">{notices.length - index}</td>
-                          <td className="px-6 py-4 font-medium text-gray-900">{notice.title}</td>
+                          <td className="px-6 py-4 font-medium text-gray-900 group-hover:text-primary-700 transition-colors">
+                            {notice.title}
+                            <span className="ml-2 inline-block opacity-0 group-hover:opacity-100 text-primary-400 text-xs transition-opacity">Read more</span>
+                          </td>
                           <td className="px-6 py-4 text-gray-400 text-sm text-right">{notice.date}</td>
                         </tr>
                       ))}
@@ -174,15 +238,36 @@ export const Community: React.FC = () => {
                   exit={{ opacity: 0, x: 20 }}
                   className="grid grid-cols-1 md:grid-cols-2 gap-6"
                 >
-                  {galleryImages.map((img) => (
-                    <div key={img.id} className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-soft border border-gray-100">
-                      <img 
-                        src={img.url} 
-                        alt={img.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <span className="text-white font-bold">{img.title}</span>
+                  {galleryItems.map((item) => (
+                    <div 
+                      key={item.id} 
+                      onClick={() => setSelectedItem(item)}
+                      className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-soft border border-gray-100 cursor-pointer"
+                    >
+                      {item.image ? (
+                        <img 
+                          src={item.image} 
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                          }}
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-gray-400">
+                          <ImageIcon size={32} />
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                      
+                      <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <span className="text-white/70 text-xs font-bold uppercase tracking-wider mb-1 block">
+                          {item.date}
+                        </span>
+                        <h3 className="text-white font-bold text-lg leading-tight mb-2">{item.title}</h3>
+                        <p className="text-white/80 text-sm line-clamp-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                          {item.content || item.summary}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -202,57 +287,122 @@ export const Community: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedItem(null)}
-              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             />
             
             <motion.div
-              layoutId={`card-${selectedItem.id}`}
-              className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden relative z-10 flex flex-col max-h-[90vh]"
+              // Apply layoutId only if it's a News item for dynamic morphing. 
+              // Otherwise (Notice/Gallery), use a simple fade-in/up animation for a "less dynamic" feel.
+              layoutId={selectedItem.category === 'Award' || selectedItem.category === 'Conference' || selectedItem.category === 'General' ? `card-${selectedItem.id}` : undefined}
+              initial={!(selectedItem.category === 'Award' || selectedItem.category === 'Conference' || selectedItem.category === 'General') ? { opacity: 0, y: 20, scale: 0.98 } : undefined}
+              animate={!(selectedItem.category === 'Award' || selectedItem.category === 'Conference' || selectedItem.category === 'General') ? { opacity: 1, y: 0, scale: 1 } : undefined}
+              exit={!(selectedItem.category === 'Award' || selectedItem.category === 'Conference' || selectedItem.category === 'General') ? { opacity: 0, y: 20, scale: 0.98 } : undefined}
+              className={`w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden relative z-10 flex flex-col max-h-[90vh] ${selectedItem.category === 'Gallery' ? 'md:flex-row' : ''}`}
             >
-              {/* Header */}
-              <div className="p-8 md:p-10 border-b border-gray-100 relative">
-                <button 
-                  onClick={(e) => { e.stopPropagation(); setSelectedItem(null); }}
-                  className="absolute top-6 right-6 p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 transition-colors"
-                >
-                  <X size={20} />
-                </button>
+              
+              {/* Special Layout for Gallery Items */}
+              {selectedItem.category === 'Gallery' ? (
+                 <>
+                  {/* Image Side (or Top on mobile) */}
+                  <div className="w-full md:w-3/5 bg-black flex items-center justify-center relative min-h-[300px]">
+                    {selectedItem.image ? (
+                      <img 
+                        src={selectedItem.image} 
+                        alt={selectedItem.title} 
+                        className="w-full h-full object-contain max-h-[60vh] md:max-h-full"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    ) : (
+                      <div className="text-white/50 text-center p-8">
+                        <ImageIcon size={48} className="mx-auto mb-4 opacity-50" />
+                        <p>Image not available</p>
+                      </div>
+                    )}
+                     <button 
+                      onClick={(e) => { e.stopPropagation(); setSelectedItem(null); }}
+                      className="absolute top-4 left-4 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors md:hidden"
+                    >
+                      <X size={20} />
+                    </button>
+                  </div>
 
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-amber-100 text-amber-700">
-                    <Tag size={12} /> {selectedItem.category}
-                  </span>
-                  <span className="flex items-center gap-1 text-gray-400 text-sm font-medium">
-                    <Calendar size={14} /> {selectedItem.date}
-                  </span>
-                </div>
-                
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 leading-tight">
-                  {selectedItem.title}
-                </h2>
-              </div>
+                  {/* Text Side */}
+                  <div className="w-full md:w-2/5 flex flex-col h-full bg-white relative">
+                     <button 
+                      onClick={(e) => { e.stopPropagation(); setSelectedItem(null); }}
+                      className="absolute top-4 right-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 transition-colors hidden md:block"
+                    >
+                      <X size={20} />
+                    </button>
 
-              {/* Scrollable Content */}
-              <div className="p-8 md:p-10 overflow-y-auto custom-scrollbar">
-                <div 
-                  className="prose prose-xl text-gray-600 max-w-none"
-                  dangerouslySetInnerHTML={{ __html: selectedItem.content || selectedItem.summary }} 
-                />
-              </div>
+                    <div className="p-8 overflow-y-auto custom-scrollbar flex-grow">
+                      <div className="mb-6 border-b border-gray-100 pb-4">
+                        <span className="flex items-center gap-1 text-primary-600 text-sm font-bold mb-2">
+                           <Calendar size={14} /> {selectedItem.date}
+                        </span>
+                        <h2 className="text-2xl font-serif font-bold text-gray-900 leading-tight">
+                          {selectedItem.title}
+                        </h2>
+                      </div>
+                      <div className="prose prose-sm text-gray-600">
+                        <p>{selectedItem.content || selectedItem.summary}</p>
+                      </div>
+                    </div>
+                  </div>
+                 </>
+              ) : (
+                /* Standard Layout for News & Notices */
+                <>
+                  {/* Header */}
+                  <div className="p-8 md:p-10 border-b border-gray-100 relative">
+                    <button 
+                      onClick={(e) => { e.stopPropagation(); setSelectedItem(null); }}
+                      className="absolute top-6 right-6 p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 transition-colors"
+                    >
+                      <X size={20} />
+                    </button>
 
-              {/* Footer / Link */}
-              {selectedItem.link && (
-                <div className="p-6 md:p-8 bg-gray-50 border-t border-gray-100 flex justify-end">
-                  <a 
-                    href={selectedItem.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-600 text-white font-bold shadow-lg hover:bg-primary-700 hover:shadow-xl transition-all"
-                  >
-                    Read Full Article on School Website
-                    <ExternalLink size={18} />
-                  </a>
-                </div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide 
+                        ${selectedItem.category === 'Notice' ? 'bg-gray-100 text-gray-700' : 'bg-amber-100 text-amber-700'}`}>
+                        {selectedItem.category === 'Notice' ? <Bell size={12}/> : <Tag size={12} />} 
+                        {selectedItem.category}
+                      </span>
+                      <span className="flex items-center gap-1 text-gray-400 text-sm font-medium">
+                        <Calendar size={14} /> {selectedItem.date}
+                      </span>
+                    </div>
+                    
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 leading-tight">
+                      {selectedItem.title}
+                    </h2>
+                  </div>
+
+                  {/* Scrollable Content */}
+                  <div className="p-8 md:p-10 overflow-y-auto custom-scrollbar bg-white">
+                    <div 
+                      className="prose prose-lg text-gray-600 max-w-none"
+                      dangerouslySetInnerHTML={{ __html: selectedItem.content || selectedItem.summary }} 
+                    />
+                  </div>
+
+                  {/* Footer / Link */}
+                  {selectedItem.link && (
+                    <div className="p-6 md:p-8 bg-gray-50 border-t border-gray-100 flex justify-end">
+                      <a 
+                        href={selectedItem.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-600 text-white font-bold shadow-lg hover:bg-primary-700 hover:shadow-xl transition-all"
+                      >
+                        Read Full Article
+                        <ExternalLink size={18} />
+                      </a>
+                    </div>
+                  )}
+                </>
               )}
             </motion.div>
           </div>
