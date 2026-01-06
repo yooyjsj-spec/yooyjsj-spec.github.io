@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Layout } from '../components/Layout';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, BookOpen, Award, Calendar, ChevronLeft, ChevronRight, Users } from 'lucide-react';
+import { ExternalLink, BookOpen, Award, Calendar, ChevronLeft, ChevronRight, Users, Search } from 'lucide-react';
 import { journalData } from '../data/journals';
 import { patentData } from '../data/asset_patents';
 import { ASSETS } from '../data/assets';
@@ -119,6 +119,12 @@ export const Publications: React.FC = () => {
                   const isPatent = activeTab === 'patents';
                   const pub = item as any; // Cast for flexibility in rendering logic below
                   
+                  
+                  // Determine Link URL
+                  // For patents: Use explicit link if available, otherwise search Google Patents by number
+                  const linkUrl = isPatent 
+                    ? (pub.link || (pub.number ? `https://patents.google.com/?q=${encodeURIComponent(pub.number)}` : ''))
+                    : pub.doi;
                   return (
                     <motion.div
                       key={`${activeTab}-${currentPage}-${index}`}
@@ -183,15 +189,19 @@ export const Publications: React.FC = () => {
 
                           {/* Action Button */}
                           <div className="mt-6 pt-6 border-t border-gray-100 flex items-center justify-end">
-                            {(isPatent ? pub.link : pub.doi) ? (
+                            {linkUrl ? (
                               <a 
-                                href={isPatent ? pub.link : pub.doi} 
+                                href={linkUrl} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gray-900 text-white font-medium text-sm hover:bg-primary-600 transition-colors group/btn"
                               >
                                 {isPatent ? 'View Patent' : 'Read Paper'}
-                                <ExternalLink size={14} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                                {isPatent && !pub.link ? (
+                                  <Search size={14} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                                ) : (
+                                  <ExternalLink size={14} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                                )}
                               </a>
                             ) : (
                               <span className="text-gray-400 text-sm italic">
