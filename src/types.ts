@@ -7,6 +7,17 @@ export interface JournalPaper {
   date: string;
 }
 
+export interface PatentItem {
+  title: string;
+  country: string;
+  date: string;
+  number: string;
+  applicantsCount: number;
+  inventors: string[];
+  link: string;
+  image: string;
+}
+
 // Placeholders for future data
 export interface ConferencePaper {
   id: string;
