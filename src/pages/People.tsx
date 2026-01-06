@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Layout } from '../components/Layout';
 import { motion } from 'framer-motion';
@@ -65,11 +66,23 @@ export const People: React.FC = () => {
       equipment: ["Arc Melting Furnace", "Tube Furnace"],
       image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop"
     },
+    { 
+      name: "Seunggyu Hong", 
+      email: "hongsg4665@kookmin.ac.kr", 
+      research: "Data Analysis & AI",
+      equipment: ["Deep Learning Server", "Python"],
+      image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop"
+    },
+    { 
+      name: "Hyunyoung Park", 
+      email: "jury1390@kookmin.ac.kr", 
+      research: "Alloy Characterization",
+      equipment: ["SEM", "Optical Microscope"],
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop"
+    },
   ];
 
   const undergradStudents: UndergradStudent[] = [
-    { name: "Seunggyu Hong", email: "hongsg4665@kookmin.ac.kr", research: "Data Analysis", image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop" },
-    { name: "Hyunyoung Park", email: "jury1390@kookmin.ac.kr", research: "Lab Assistant", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" },
     { name: "Dawon Kang", email: "dawon1242@kookmin.ac.kr", research: "Material Synthesis", image: "https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=800&auto=format&fit=crop" },
     { name: "Hyungjin Park", email: "chemilk02@kookmin.ac.kr", research: "Sample Prep", image: "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?q=80&w=800&auto=format&fit=crop" },
     { name: "Youngjae Yoo", email: "yooyjsj@kookmin.ac.kr", research: "Simulation Support", image: "https://images.unsplash.com/photo-1504257404462-f73f17079265?q=80&w=800&auto=format&fit=crop" },
@@ -172,49 +185,52 @@ export const People: React.FC = () => {
             <p className="text-slate-500 mt-6 max-w-2xl mx-auto">Master's and Doctoral candidates leading advanced research in superalloys and AI analysis.</p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {mastersStudents.map((student, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-2xl border border-slate-100 transition-all duration-300 group flex flex-col h-full"
+                className="bg-white rounded-xl overflow-hidden shadow-soft hover:shadow-lg border border-slate-100 transition-all duration-300 group flex flex-row h-40 md:h-44"
               >
-                {/* Vertical Portrait Image */}
-                <div className="aspect-[3/4] overflow-hidden relative">
-                  <img src={student.image} alt={student.name} className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-60" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="bg-primary-600 text-white text-[10px] font-bold uppercase tracking-tighter px-2 py-0.5 rounded">M.S. Student</span>
-                  </div>
+                {/* Image Section (Left) */}
+                <div className="w-32 md:w-36 shrink-0 relative overflow-hidden">
+                  <img 
+                    src={student.image} 
+                    alt={student.name} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
 
-                {/* Info Area */}
-                <div className="p-6 flex-grow flex flex-col">
-                  <h3 className="text-xl font-bold text-slate-900 mb-1">{student.name}</h3>
-                  <div className="flex items-center gap-2 text-xs text-primary-700 font-bold mb-3">
-                    <Cpu size={14} />
-                    {student.research}
+                {/* Content Section (Right) */}
+                <div className="p-4 flex-grow flex flex-col justify-center min-w-0">
+                  <h3 className="text-lg font-bold text-slate-900 leading-tight mb-0.5 truncate">{student.name}</h3>
+                  <div className="text-[10px] font-bold text-primary-600 uppercase tracking-wide mb-2 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary-500 inline-block"></span>
+                    M.S. Student
                   </div>
                   
-                  {/* Responsible Equipment - New Section */}
-                  <div className="mb-4 pt-4 border-t border-slate-50">
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1">
-                      <Wrench size={10} /> 담당 장비 (Equipment)
-                    </p>
-                    <div className="flex flex-wrap gap-1">
-                      {student.equipment.map((eq, i) => (
-                        <span key={i} className="bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded-full border border-slate-200">
+                  <div className="space-y-1 mb-2">
+                    <div className="text-xs text-slate-600 flex items-center gap-1.5">
+                      <Cpu size={12} className="text-slate-400 shrink-0" />
+                      <span className="font-medium truncate">{student.research}</span>
+                    </div>
+                    
+                    {/* Equipment Tags */}
+                    <div className="flex flex-wrap gap-1 mt-1">
+                      {student.equipment.slice(0, 2).map((eq, i) => (
+                        <span key={i} className="text-[9px] px-1.5 py-0.5 bg-slate-50 text-slate-500 rounded border border-slate-200 truncate max-w-[120px]">
                           {eq}
                         </span>
                       ))}
                     </div>
                   </div>
 
-                  <div className="mt-auto">
-                    <a href={`mailto:${student.email}`} className="text-xs text-slate-400 hover:text-primary-600 flex items-center gap-2 transition-colors">
-                      <Mail size={14} className="shrink-0" />
+                  <div className="mt-auto pt-2 border-t border-slate-50">
+                    <a href={`mailto:${student.email}`} className="text-xs text-slate-400 hover:text-primary-600 flex items-center gap-1.5 transition-colors group-hover:text-primary-600">
+                      <Mail size={12} className="shrink-0" />
                       <span className="truncate">{student.email}</span>
                     </a>
                   </div>
@@ -233,29 +249,34 @@ export const People: React.FC = () => {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {undergradStudents.map((student, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-xl border border-slate-100 transition-all duration-300 group flex flex-col"
+                className="bg-white rounded-xl overflow-hidden shadow-soft hover:shadow-lg border border-slate-100 transition-all duration-300 group flex flex-row h-32 md:h-36"
               >
-                <div className="aspect-[1/1] overflow-hidden relative">
-                  <img src={student.image} alt={student.name} className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-40" />
+                {/* Image Section (Left) */}
+                <div className="w-28 shrink-0 relative overflow-hidden">
+                  <img src={student.image} alt={student.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-bold text-slate-900 mb-1">{student.name}</h3>
-                  <p className="text-[10px] font-bold text-slate-400 uppercase mb-3">Undergraduate Researcher</p>
-                  <p className="text-xs text-slate-600 mb-4 bg-slate-50 p-2 rounded border border-slate-100 italic">
+                
+                {/* Content Section (Right) */}
+                <div className="p-4 flex-grow flex flex-col justify-center min-w-0">
+                  <h3 className="text-base font-bold text-slate-900 mb-0.5 truncate">{student.name}</h3>
+                  <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wide mb-2">Undergrad Researcher</div>
+                  <div className="text-xs text-slate-600 italic mb-2 truncate">
                     "{student.research}"
-                  </p>
-                  <a href={`mailto:${student.email}`} className="text-xs text-slate-400 hover:text-primary-600 flex items-center gap-2 transition-colors">
-                    <Mail size={12} />
-                    <span className="truncate">{student.email}</span>
-                  </a>
+                  </div>
+                  <div className="mt-auto">
+                    <a href={`mailto:${student.email}`} className="text-xs text-slate-400 hover:text-primary-600 flex items-center gap-1.5 transition-colors">
+                      <Mail size={12} className="shrink-0" />
+                      <span className="truncate">{student.email}</span>
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             ))}
