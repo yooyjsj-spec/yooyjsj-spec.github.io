@@ -1,40 +1,145 @@
-import { JournalPaper } from '../types';
-import { ASSETS } from './assets';
-import { assetPath } from '../utils/assetPath';
 
-// Patents section data
-// Reusing JournalPaper type to maintain the exact same layout as Journals.
+import { PatentItem } from '../types';
 
-type PatentEntry = Omit<JournalPaper, 'image'> & { image?: string };
-
-const PATENT_ENTRIES: PatentEntry[] = [
+export const patentData: PatentItem[] = [
   {
-    title: "Simple and scalable manufacturing of metal/carbon hybrid EMI shielding fabric across a broad frequency range",
-    doi: "https://doi.org/10.1016/j.jmrt.2025.01.094",
+    title: "보론이 도핑된 고엔트로피합금 및 그 제조방법",
+    country: "KR",
+    date: "2017-09-08",
+    number: "10-1962229",
+    applicantsCount: 4,
+    inventors: ["김형섭", "설재복", "배재웅", "한종찬"],
+    link: "",
     image: "/images/journals/journal001.png",
-    journal: "JMR&T", 
-    date: "2024.03.01"
   },
   {
-    title: "Complex deformation behavior of a partially recrystallized metastable medium-entropy alloy: In-situ synchrotron X-ray diffraction study",
-    doi: "https://doi.org/10.1016/j.actamat.2025.120757",
+    title: "High Entropy Alloy Doped With Boron and Method For Manufacturing the Same",
+    country: "JP",
+    date: "2017-11-07",
+    number: "6839213",
+    applicantsCount: 4,
+    inventors: ["김형섭", "설재복", "배재웅", "한종찬"],
+    link: "",
     image: "/images/journals/journal002.png",
-    journal: "Acta", 
-    date: "2025.03.01."
   },
   {
-    title: "Multi-scale design of deformation mechanisms at hetero-zone boundaries: Dual HDI strengthening driven by TRIP effect",
-    doi: "https://doi.org/10.1016/j.jmst.2025.01.032",
+    title: "Method for Manufacturing Ferritic Lightweight Steel and Ferritic Lightweight Steel Using Same",
+    country: "US",
+    date: "2024-04-09",
+    number: "11,952,647",
+    applicantsCount: 6,
+    inventors: ["설재복", "배호주", "고광규", "김정기", "성효경", "이영국"],
+    link: "",
     image: "/images/journals/journal003.png",
-    journal: "JMST", 
-    date: "2025.03.08."
-  }
+  },
+  {
+    title: "Method for Manufacturing Ferritic Lightweight Steel and Ferritic Lightweight Steel Using Same",
+    country: "EP",
+    date: "2023-06-09",
+    number: "EP 21903648.0",
+    applicantsCount: 6,
+    inventors: ["설재복", "배호주", "고광규", "김정기", "성효경", "이영국"],
+    link: "",
+    image: "/images/journals/journal004.png",
+  },
+  {
+    title: "Method for Manufacturing Ferritic Lightweight Steel and Ferritic Lightweight Steel Using Same",
+    country: "JP",
+    date: "2023-06-01",
+    number: "特願 2023-533770",
+    applicantsCount: 6,
+    inventors: ["설재복", "배호주", "고광규", "김정기", "성효경", "이영국"],
+    link: "",
+    image: "/images/journals/journal005.png",
+  },
+  {
+    title: "우수한 생산성을 갖는 Ti-6Al-4V 합금 적층 조형물 제조방법 및 이를 이용한 Ti-6Al-4V 합금 적층 조형물",
+    country: "KR",
+    date: "2021-09-02",
+    number: "10-2546408",
+    applicantsCount: 5,
+    inventors: ["성효경", "김정기", "설재복", "박상윤", "이재현"],
+    link: "",
+    image: "/images/journals/journal006.png",
+  },
+  {
+    title: "고온 인장특성이 우수한 Inconel 718 합금 적층 조형물 제조방법 및 이를 이용한 Inconel 718 합금 적층 조형물",
+    country: "KR",
+    date: "2021-09-02",
+    number: "10-2585060",
+    applicantsCount: 5,
+    inventors: ["성효경", "김상식", "설재복", "박하응", "이재현"],
+    link: "",
+    image: "/images/journals/journal007.png",
+  },
+  {
+    title: "레이저 기반 적층 제조 공정을 이용한 형상기억합금 및 이의 제조방법",
+    country: "KR",
+    date: "2022-03-25",
+    number: "10-2022-0037213",
+    applicantsCount: 5,
+    inventors: ["김정기", "남태현", "이영국", "성효경", "설재복"],
+    link: "",
+    image: "/images/journals/journal008.png",
+  },
+  {
+    title: "인공지능을 활용한 항공용 CRES 합금 소재 적층을 위한 학습데이터 생성방법 및 이를 이용한 인공지능",
+    country: "KR",
+    date: "2022-01-27",
+    number: "10-2022-012607",
+    applicantsCount: 6,
+    inventors: ["성효경", "박하응", "박상윤", "여태형", "김정기", "설재복"],
+    link: "",
+    image: "/images/journals/journal009.png",
+  },
+  {
+    title: "레이저 용융 기반 고밀도 및 고강도 타이타늄 합금 적층 시스템 및 이를 이용한 고밀도 및 고강도 타이타늄 합금 적층 조형물 제조방법",
+    country: "KR",
+    date: "2021-11-10",
+    number: "10-2021-0153730",
+    applicantsCount: 5,
+    inventors: ["김정기", "남태현", "이영국", "성효경", "설재복"],
+    link: "",
+    image: "/images/journals/journal010.png",
+  },
+  {
+    title: "스피노달 분해를 이용한 Cu-Al-Mn 계 형상기억합금 제조방법 및 이를 이용한 Cu-Al-Mn 계 형상기억합금",
+    country: "KR",
+    date: "2022-04-11",
+    number: "10-2022-0044703",
+    applicantsCount: 6,
+    inventors: ["설재복", "남태현", "한주연", "임진환", "류연주", "박윤혜"],
+    link: "",
+    image: "/images/journals/journal011.png",
+  },
+  {
+    title: "마이크로퍼럴 형태의 미세영역 물성 평가용 알루미늄 합금 시편 제조방법 및 이를 이용한 마이크로퍼럴 형태의 미세영역 물성 평가용 알루미늄 합금 시편",
+    country: "KR",
+    date: "2021-09-02",
+    number: "10-2621666",
+    applicantsCount: 6,
+    inventors: ["성효경", "설재복", "김정기", "박상윤", "셰프카 아니", "이재현"],
+    link: "",
+    image: "/images/journals/journal012.png",
+  },
+  {
+    title: "페라이트계 경량 철강의 제조방법 및 이를 이용한 페라이트계 경량 철강",
+    country: "KR",
+    date: "2020-12-10",
+    number: "10-2319479",
+    applicantsCount: 5,
+    inventors: ["설재복", "배호주", "고광규", "김정기", "성효경"],
+    link: "",
+    image: "/images/journals/journal013.png",
+  },
+  {
+    title: "니켈계 초내열합금 및 그 제조방법",
+    country: "KR",
+    date: "2022-08-01",
+    number: "10-2758393",
+    applicantsCount: 6,
+    inventors: ["설재복", "박호혜", "배호주", "고광규", "조원희", "이초현"],
+    link: "",
+    image: "/images/journals/journal014.png",
+  },
 ];
-
-const buildImage = (image?: string) =>
-  image ? assetPath(image) : ASSETS.JOURNALS.DEFAULT_COVER;
-
-export const patentData: JournalPaper[] = PATENT_ENTRIES.map((entry) => ({
-  ...entry,
-  image: buildImage(entry.image),
-}));
