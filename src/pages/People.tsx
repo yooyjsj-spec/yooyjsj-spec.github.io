@@ -27,57 +27,57 @@ export const People: React.FC = () => {
     { 
       name: "Chohyun Lee", 
       email: "cho0410@kookmin.ac.kr", 
-      research: "Superalloy Design",
-      equipment: ["XRD", "Vickers Hardness Tester"],
+      research: "금속 적층제조",
+      equipment: ["TEM", "APT"],
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"
     },
     { 
       name: "Wonhee Jo", 
       email: "jwonh0104@kookmin.ac.kr", 
-      research: "Microstructure Analysis",
-      equipment: ["SEM (Scanning Electron Microscope)"],
+      research: "금속 적층제조 및 미세조직 분석",
+      equipment: ["TEM", "APT"],
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop"
     },
     { 
       name: "Jeongung Park", 
       email: "wjddnd636@kookmin.ac.kr", 
-      research: "Mechanical Properties",
-      equipment: ["Universal Testing Machine (UTM)"],
+      research: "철강소재 적층제조 및 미세조직 분석",
+      equipment: ["TEM"],
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop"
     },
     { 
       name: "Minyoung Lee", 
       email: "5368min@kookmin.ac.kr", 
-      research: "Phase Transformation",
-      equipment: ["DSC (Differential Scanning Calorimetry)"],
+      research: "중망간강 DED 적층",
+      equipment: ["SEM"],
       image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
     },
     { 
       name: "Minyu Kang", 
       email: "kminyu@kookmin.ac.kr", 
-      research: "Corrosion Resistance",
-      equipment: ["Potentiostat/Galvanostat"],
+      research: "제진합금 미세조직 분석",
+      equipment: ["SEM"],
       image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop"
     },
     { 
       name: "Seonghyun Yang", 
       email: "sorntmf@kookmin.ac.kr", 
-      research: "Alloy Processing",
-      equipment: ["Arc Melting Furnace", "Tube Furnace"],
+      research: "철강소재 미세조직 분석",
+      equipment: ["SEM"],
       image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop"
     },
     { 
       name: "Seunggyu Hong", 
       email: "hongsg4665@kookmin.ac.kr", 
-      research: "Data Analysis & AI",
-      equipment: ["Deep Learning Server", "Python"],
+      research: "니켈 초내열합금 미세조직 분석",
+      equipment: ["SEM", "Optical Microscope"],
       image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop"
     },
     { 
       name: "Hyunyoung Park", 
       email: "jury1390@kookmin.ac.kr", 
-      research: "Alloy Characterization",
-      equipment: ["SEM", "Optical Microscope"],
+      research: "주조용 Al 및 Ni 합금 미세조직 분석",
+      equipment: ["APT"],
       image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop"
     },
   ];
