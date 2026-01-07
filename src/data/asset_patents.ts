@@ -3,6 +3,16 @@ import { PatentItem } from '../types';
 
 export const patentData: PatentItem[] = [
   {
+    title: "니켈 기반 초내열합금의 감마프라임상 및 입계 탄화물 에칭 방법법",
+    country: "KR",
+    date: "2025-11-04",
+    number: "10-2025-0164443",
+    applicantsCount: 4,
+    inventors: ["설재복", "윤대원", "홍승규", "이초현"],
+    link: "",
+    image: "/images/journals/journal014.png",
+  },
+  {
     title: "니켈기 초내열합금 및 그의 제조방법",
     country: "KR",
     date: "2022-08-01",
