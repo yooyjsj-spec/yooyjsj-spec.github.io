@@ -32,12 +32,12 @@ export const Community: React.FC = () => {
   const notices: CommunityItem[] = [
     { 
       id: 'n1', 
-      title: '2026학년도 1학기 연구실 신입생 모집', 
+      title: '2026학년도 연구실 신입생 모집', 
       date: '2026-01-01', 
       summary: 'ADAM 연구실에서 열정적인 석/박사 통합과정 신입생을 모집합니다.', 
       category: 'Notice',
       content: `
-        <p class="mb-4 font-bold">ADAM Lab에서 2026학년도 1학기 대학원 신입생을 모집합니다.</p>
+        <p class="mb-4 font-bold">ADAM Lab에서 2026학년도 대학원 신입생을 모집합니다.</p>
         <p>관심 있는 학생은 설재복 교수님 이메일(jb.seol@kookmin.ac.kr)로 연락 바랍니다.</p>
       `
     }

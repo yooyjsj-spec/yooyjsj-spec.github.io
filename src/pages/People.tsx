@@ -91,7 +91,7 @@ export const People: React.FC = () => {
     { name: "Hyungjin Park", email: "chemilk02@kookmin.ac.kr", research: "Sample Prep", image: peopleImage("Hyungjin.jpg") },
     { name: "Youngjae Yoo", email: "yooyjsj@kookmin.ac.kr", research: "Simulation Support", image: peopleImage("Youngjae.jpg") },
     { name: "Bogeun Park", email: "qkrqhrms9@kookmin.ac.kr", research: "Literature Review", image: peopleImage("Bogeun.jpg") },
-    { name: "Sihyun Park", email: "sihyun00@kookmin.ac.kr", research: "Literature Review", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" },
+    { name: "Sihyun Park", email: "sihyun00@kookmin.ac.kr", research: "Literature Review", image: peopleImage("Sihyun.jpg") },
   ];
 
   return (
