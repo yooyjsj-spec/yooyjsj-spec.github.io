@@ -5,6 +5,7 @@ import { CommunityItem } from '../types';
 import { Calendar, Tag, ExternalLink, X, Newspaper, Bell, Image as ImageIcon, ChevronRight, Mic2 } from 'lucide-react';
 import { ASSETS } from '../data/assets';
 import { conferenceData } from '../data/asset_conferences';
+import { assetPath } from '../utils/assetPath';
 
 type Tab = 'news' | 'notice' | 'conferences' | 'gallery';
 
@@ -92,7 +93,7 @@ const galleryItems: CommunityItem[] = [
     date: '2024-03-05',
     summary: 'Presentation at TMS 2024 Annual Meeting.',
     category: 'Gallery',
-    image: '/images/gallery/20241204.jpg',
+    image: assetPath('/images/gallery/20241204.jpg'),
     content: 'Members of ADAM Lab attended the TMS 2024 Annual Meeting. We presented our latest findings on AI-driven microstructure analysis.'
   },
   {
@@ -101,7 +102,7 @@ const galleryItems: CommunityItem[] = [
     date: '2025-01-20',
     summary: 'Group photo of ADAM Lab members.',
     category: 'Gallery',
-    image: '/images/gallery/20250120.jpg',
+    image: assetPath('/images/gallery/20250120.jpg'),
     content: 'Group photo taken during the 2025 winter semester.'
   },
   {
@@ -110,7 +111,7 @@ const galleryItems: CommunityItem[] = [
     date: '2025-04-25',
     summary: 'On-site visit to an industry partner.',
     category: 'Gallery',
-    image: '/images/gallery/20250425.jpg',
+    image: assetPath('/images/gallery/20250425.jpg'),
     content: 'ADAM Lab members visited an industrial research facility.'
   },
   {
@@ -119,7 +120,7 @@ const galleryItems: CommunityItem[] = [
     date: '2025-07-16',
     summary: '두산에너빌리티 본사 방문.',
     category: 'Gallery',
-    image: '/images/gallery/20250716.jpg',
+    image: assetPath('/images/gallery/20250716.jpg'),
     content: '두산에너빌리티 본사 및 창원공장 방문기념사진진'
   },
   {
@@ -128,7 +129,7 @@ const galleryItems: CommunityItem[] = [
     date: '2025-07-29',
     summary: 'Participation in academic workshop.',
     category: 'Gallery',
-    image: '/images/gallery/20250729.jpg',
+    image: assetPath('/images/gallery/20250729.jpg'),
     content: 'Workshop focused on materials data analysis.'
   },
   {
@@ -137,7 +138,7 @@ const galleryItems: CommunityItem[] = [
     date: '2025-08-28',
     summary: 'Annual lab retreat.',
     category: 'Gallery',
-    image: '/images/gallery/20250828.jpg',
+    image: assetPath('/images/gallery/20250828.jpg'),
     content: 'Annual retreat for discussion and collaboration.'
   },
 ];

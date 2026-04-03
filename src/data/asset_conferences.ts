@@ -13,9 +13,9 @@ const toAsset = (relativePublicPath: string) => assetPath(relativePublicPath);
 // Conferences data for the Community page (grouped sections with multiple photos)
 export const conferenceData: ConferenceSection[] = [
   {
-    title: '2025대한금속학회',
-    date: '2025.05.18', // 임의값(수정 예정)
-    summary: '2025 대한금속학회 참가 및 발표/포스터 세션 소식입니다.',
+    title: '2025 대한금속학회',
+    date: '2025.10.29', // 임의값(수정 예정)
+    summary: '2025 대한금속학회 참가',
     images: [
       toAsset('/images/Conferences/2025_Kr_Metal/2025_Kr_Metal_1.jpg'),
       toAsset('/images/Conferences/2025_Kr_Metal/2025_Kr_Metal_2.jpg'),
@@ -29,9 +29,9 @@ export const conferenceData: ConferenceSection[] = [
     `,
   },
   {
-    title: '대만APT Workshop',
-    date: '2025.06.10', // 임의값(수정 예정)
-    summary: 'APT 기반 분석 관련 워크숍 참가 사진입니다.',
+    title: 'APT Workshop (Taiwan)',
+    date: '2025.08.25~2028.08.26', // 임의값(수정 예정)
+    summary: 'APT 기반 분석 관련 워크숍',
     images: [
       toAsset('/images/Conferences/2025_Taiwan_AtomProbeWorkshop/2025_Taiwan_Atom%20Probe%20Workshop.jpg'),
     ],
@@ -43,9 +43,9 @@ export const conferenceData: ConferenceSection[] = [
     `,
   },
   {
-    title: '일본ICSMA20',
-    date: '2025.06.02', // 임의값(수정 예정)
-    summary: '일본 ICSMA20 학회 참가 및 현장 사진 모음입니다.',
+    title: 'ICSMA20 (JAPAN)',
+    date: '2025.06.12', // 임의값(수정 예정)
+    summary: '일본 ICSMA20 학회',
     images: [
       toAsset('/images/Conferences/20250602_JP_ICSMA20/20250602_JP_ICSMA20_1.jpg'),
       toAsset('/images/Conferences/20250602_JP_ICSMA20/20250602_JP_ICSMA20_2.jpg'),
