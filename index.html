@@ -3,10 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ADAM Lab - AI & Aerospace Materials</title>
+    <title>SMD Lab - POSTECH GIFT</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <script>
+      /* ------------------------------------------------------------------
+         POSTECH Brand Identity palette
+         Source: https://www.postech.ac.kr/kor/university-introduction/symbol.do
+           POSTECH Red    Pantone 215C  R166 G25  B85   #a61955  (main)
+           POSTECH Orange Pantone 130C  R246 G167 B0    #f6a700  (sub)
+           POSTECH Gray   Pantone 404C  R122 G119 B114  #7a7772  (sub)
+           POSTECH Silver Pantone 877C  R197 G198 B202  #c5c6ca  (sub)
+           POSTECH Gold   Pantone 872C  R218 G186 B101  #daba65  (sub)
+      ------------------------------------------------------------------ */
       tailwind.config = {
         darkMode: 'class',
         theme: {
@@ -16,29 +25,67 @@
               serif: ['Rajdhani', 'sans-serif'], 
             },
             colors: {
-              primary: {
-                50: '#eff6ff',
-                100: '#dbeafe',
-                500: '#3b82f6',
-                600: '#2563eb',
-                700: '#1d4ed8',
-                800: '#1e40af',
-                900: '#0f172a',
+              /* Raw brand swatches — use when the exact BI value is required */
+              postech: {
+                red: '#a61955',
+                orange: '#f6a700',
+                gray: '#7a7772',
+                silver: '#c5c6ca',
+                gold: '#daba65',
               },
+              /* Primary ramp built around POSTECH Red (600 is the exact BI value) */
+              primary: {
+                50: '#fdf2f7',
+                100: '#fce4ef',
+                200: '#f7c3d9',
+                300: '#ef97ba',
+                400: '#e05f93',
+                500: '#c93372',
+                600: '#a61955',
+                700: '#8e1449',
+                800: '#74103c',
+                900: '#4a0a26',
+              },
+              /* POSTECH Gold ramp — accent for dark sections, where red loses contrast */
+              gold: {
+                200: '#f2e6c4',
+                300: '#e8d296',
+                400: '#daba65',
+                500: '#c9a44a',
+                600: '#a88637',
+                700: '#8a6c28',
+              },
+              /* Neutral ramp warmed to POSTECH Gray (500 is the exact BI value).
+                 `gray` and `slate` are aliased to the same ramp so the pages keep
+                 one consistent neutral no matter which utility name they use. */
               gray: {
-                50: '#f9fafb',
-                100: '#f3f4f6',
-                200: '#e5e7eb',
-                300: '#d1d5db',
-                400: '#9ca3af',
-                500: '#6b7280',
-                800: '#1f2937',
-                900: '#111827',
-              }
+                50: '#faf9f8',
+                100: '#f4f2f1',
+                200: '#e7e4e2',
+                300: '#d5d1ce',
+                400: '#a9a5a0',
+                500: '#7a7772',
+                600: '#5e5b57',
+                700: '#474440',
+                800: '#2e2c29',
+                900: '#1c1a18',
+              },
+              slate: {
+                50: '#faf9f8',
+                100: '#f4f2f1',
+                200: '#e7e4e2',
+                300: '#d5d1ce',
+                400: '#a9a5a0',
+                500: '#7a7772',
+                600: '#5e5b57',
+                700: '#474440',
+                800: '#2e2c29',
+                900: '#1c1a18',
+              },
             },
             boxShadow: {
-              'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-              'soft-hover': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.01)',
+              'soft': '0 4px 20px -2px rgba(28, 26, 24, 0.06)',
+              'soft-hover': '0 10px 25px -5px rgba(166, 25, 85, 0.12), 0 8px 10px -6px rgba(28, 26, 24, 0.04)',
             }
           },
         },

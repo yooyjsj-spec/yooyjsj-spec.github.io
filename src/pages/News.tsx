@@ -8,7 +8,7 @@ export const News: React.FC = () => {
   const newsItems: NewsItem[] = [
     {
       id: '1',
-      title: "ADAM Lab Secures New Defense Grant",
+      title: "SMD Lab Secures New Defense Grant",
       date: "2024-05-15",
       summary: "We are proud to announce a new partnership with the National Defense Research Institute to develop heat-resistant alloys.",
       category: "Award"
@@ -24,7 +24,7 @@ export const News: React.FC = () => {
       id: '3',
       title: "Spring 2024 Lab Workshop",
       date: "2024-02-01",
-      summary: "ADAM Lab hosted a workshop on AI applications in metallurgy featuring guest speakers from industry leaders.",
+      summary: "SMD Lab hosted a workshop on AI applications in metallurgy featuring guest speakers from industry leaders.",
       category: "General"
     }
   ];
@@ -47,9 +47,9 @@ export const News: React.FC = () => {
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3">
                 <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide
-                  ${item.category === 'Award' ? 'bg-amber-100 text-amber-700' : 
-                    item.category === 'Conference' ? 'bg-purple-100 text-purple-700' : 
-                    'bg-blue-100 text-blue-700'}`}>
+                  ${item.category === 'Award' ? 'bg-gold-200 text-gold-700' : 
+                    item.category === 'Conference' ? 'bg-primary-100 text-primary-700' : 
+                    'bg-gray-200 text-gray-700'}`}>
                   <Tag size={12} /> {item.category}
                 </span>
                 <span className="flex items-center gap-1 text-gray-400 text-sm font-medium">

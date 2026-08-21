@@ -26,21 +26,36 @@ export const Community: React.FC = () => {
       content: `
         <p class="mb-4">국민대학교(총장 정승렬) 신소재공학부 설재복 교수가 미국 스탠퍼드 대학교와 엘스비어(Elsevier)가 공동으로 발표한 '2025 세계 최상위 2% 연구자(World's Top 2% Scientists)' 명단에 이름을 올렸다.</p>
         <p class="mb-4">설재복 교수는 재료공학 분야, 특히 항공우주 및 방위산업 소재와 첨단 분석 기술 분야에서의 탁월한 연구 성과를 인정받았다.</p>
+        <p class="mt-6 pt-4 border-t border-gray-200 text-sm text-gray-500">※ 설재복 교수는 2026년 9월부로 포항공과대학교(POSTECH) 친환경소재대학원(GIFT)으로 자리를 옮겼으며, 위 내용은 선정 당시(국민대학교 재직) 기준입니다.</p>
       `
     }
   ];
 
   // Notice Data
   const notices: CommunityItem[] = [
+    {
+      id: 'n2',
+      title: 'SMD 연구실 POSTECH 친환경소재대학원(GIFT) 이전 안내',
+      date: '2026-09-01',
+      summary: 'SMD 연구실이 2026년 9월부로 포항공과대학교 친환경소재대학원(GIFT)으로 이전하였습니다.',
+      category: 'Notice',
+      content: `
+        <p class="mb-4 font-bold">SMD 연구실이 포항공과대학교(POSTECH) 친환경소재대학원(GIFT)으로 이전하였습니다.</p>
+        <p class="mb-4">연구실 명칭도 기존 <strong>ADAM Lab</strong>에서 <strong>SMD Lab (Sustainable Materials Design)</strong>으로 변경되었습니다.</p>
+        <p class="mb-4">설재복 교수는 2026년 8월까지 국민대학교 신소재공학부에 재직하였으며, 2026년 9월부로 POSTECH 친환경소재대학원(Graduate Institute of Ferrous &amp; Eco Materials Technology, GIFT) 교수로 부임하였습니다.</p>
+        <p class="mb-4"><strong>새 주소</strong><br/>(37673) 경상북도 포항시 남구 청암로 77, 포항공과대학교 친환경소재대학원<br/>77 Cheongam-ro, Nam-gu, Pohang-si, Gyeongsangbuk-do 37673, Republic of Korea</p>
+        <p>연구 협력 및 대학원 진학 문의는 jb.seol@postech.ac.kr 로 연락 바랍니다.</p>
+      `
+    },
     { 
       id: 'n1', 
       title: '2026학년도 연구실 신입생 모집', 
       date: '2026-01-01', 
-      summary: 'ADAM 연구실에서 열정적인 석/박사 통합과정 신입생을 모집합니다.', 
+      summary: 'SMD 연구실에서 열정적인 석/박사 통합과정 신입생을 모집합니다.', 
       category: 'Notice',
       content: `
-        <p class="mb-4 font-bold">ADAM Lab에서 2026학년도 대학원 신입생을 모집합니다.</p>
-        <p>관심 있는 학생은 설재복 교수님 이메일(jb.seol@kookmin.ac.kr)로 연락 바랍니다.</p>
+        <p class="mb-4 font-bold">SMD Lab에서 2026학년도 대학원 신입생을 모집합니다.</p>
+        <p>관심 있는 학생은 설재복 교수님 이메일(jb.seol@postech.ac.kr)로 연락 바랍니다.</p>
       `
     }
   ];
@@ -94,13 +109,13 @@ const galleryItems: CommunityItem[] = [
     summary: 'Presentation at TMS 2024 Annual Meeting.',
     category: 'Gallery',
     image: assetPath('/images/gallery/20241204.jpg'),
-    content: 'Members of ADAM Lab attended the TMS 2024 Annual Meeting. We presented our latest findings on AI-driven microstructure analysis.'
+    content: 'Members of SMD Lab attended the TMS 2024 Annual Meeting. We presented our latest findings on AI-driven microstructure analysis.'
   },
   {
     id: 'g2',
     title: 'Lab Group Photo',
     date: '2025-01-20',
-    summary: 'Group photo of ADAM Lab members.',
+    summary: 'Group photo of SMD Lab members.',
     category: 'Gallery',
     image: assetPath('/images/gallery/20250120.jpg'),
     content: 'Group photo taken during the 2025 winter semester.'
@@ -112,7 +127,7 @@ const galleryItems: CommunityItem[] = [
     summary: 'On-site visit to an industry partner.',
     category: 'Gallery',
     image: assetPath('/images/gallery/20250425.jpg'),
-    content: 'ADAM Lab members visited an industrial research facility.'
+    content: 'SMD Lab members visited an industrial research facility.'
   },
   {
     id: 'g4',
@@ -188,7 +203,7 @@ const galleryItems: CommunityItem[] = [
                   {newsItems.map((item) => (
                     <div key={item.id} onClick={() => setSelectedItem(item)} className="bg-white rounded-2xl p-8 shadow-soft hover:shadow-soft-hover border border-gray-100 cursor-pointer group">
                       <div className="flex justify-between items-center mb-4">
-                        <span className="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-bold uppercase"><Tag size={12} className="inline mr-1"/> {item.category}</span>
+                        <span className="bg-gold-200 text-gold-700 px-3 py-1 rounded-full text-xs font-bold uppercase"><Tag size={12} className="inline mr-1"/> {item.category}</span>
                         <span className="text-gray-400 text-sm"><Calendar size={14} className="inline mr-1"/> {item.date}</span>
                       </div>
                       <h3 className="text-2xl font-serif font-bold group-hover:text-primary-700 transition-colors">{item.title}</h3>

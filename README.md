@@ -1,6 +1,6 @@
-# ADAM Lab Static Site (React + Vite + TSX)
+# SMD Lab Static Site (React + Vite + TSX)
 
-Static, client-only site for ADAM Lab. Built with Vite, React, and TypeScript (TSX). Uses HashRouter for safe GitHub Pages deployment and keeps styling lightweight via Tailwind CDN plus a small `index.css`.
+Static, client-only site for SMD Lab. Built with Vite, React, and TypeScript (TSX). Uses HashRouter for safe GitHub Pages deployment and keeps styling lightweight via Tailwind CDN plus a small `index.css`.
 
 ## Quick Start
 1. Install deps: `npm install`

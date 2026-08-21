@@ -24,6 +24,7 @@ interface UndergradStudent {
 export const People: React.FC = () => {
   const peopleImage = (filename: string) => `${import.meta.env.BASE_URL}images/people/${filename}`;
 
+  // NOTE: student addresses remain @kookmin.ac.kr until POSTECH accounts are issued.
   const phdStudents: GraduateStudent[] = [
     { 
       name: "Chohyun Lee", 
@@ -116,20 +117,22 @@ export const People: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-primary-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
                 <h2 className="text-3xl font-serif font-bold text-slate-900 mb-2">Jae Bok Seol</h2>
-                <span className="text-primary-700 font-bold uppercase tracking-widest text-sm mb-4">Associate Professor</span>
+                <span className="text-primary-700 font-bold uppercase tracking-widest text-sm mb-1">Professor</span>
+                <span className="text-gray-500 text-xs mb-4 text-center leading-relaxed">Graduate Institute of Ferrous &amp; Eco Materials Technology (GIFT)<br/>POSTECH</span>
                 
                 <div className="w-full space-y-3 text-left bg-slate-50/50 p-6 rounded-xl border border-slate-100">
                   <div className="flex items-start gap-3 text-sm text-slate-600">
                     <Building2 className="w-4 h-4 mt-1 shrink-0 text-primary-600" />
-                    <span>Office 431, Engineering Building<br/>Kookmin University</span>
+                    <span>GIFT, POSTECH<br/>77 Cheongam-ro, Nam-gu, Pohang</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-slate-600">
                     <Phone className="w-4 h-4 shrink-0 text-primary-600" />
-                    <span>+82-2-910-5014</span>
+                    {/* TODO: replace with the lab's direct GIFT extension once assigned. */}
+                    <span>+82-54-279-XXXX</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-slate-600">
                     <Mail className="w-4 h-4 shrink-0 text-primary-600" />
-                    <a href="mailto:jb.seol@kookmin.ac.kr" className="hover:text-primary-700 transition-colors">jb.seol@kookmin.ac.kr</a>
+                    <a href="mailto:jb.seol@postech.ac.kr" className="hover:text-primary-700 transition-colors">jb.seol@postech.ac.kr</a>
                   </div>
                 </div>
               </div>
@@ -161,12 +164,13 @@ export const People: React.FC = () => {
                   </h3>
                   <div className="space-y-6 pl-4 border-l-2 border-slate-200 ml-2">
                     {[
-                      { year: "2024 – Present", role: "Associate Professor (Head of ADAM Lab)", loc: "School of Materials Science & Engineering, Kookmin University (KMU)" },
+                      { year: "2026.09 – Present", role: "Professor (Head of SMD Lab)", loc: "Graduate Institute of Ferrous & Eco Materials Technology (GIFT), POSTECH", current: true },
+                      { year: "2024 – 2026.08", role: "Associate Professor (Head of ADAML)", loc: "School of Materials Science & Engineering, Kookmin University (KMU)" },
                       { year: "2011 – 2013", role: "Postdoctoral Fellow", loc: "Max Planck Institute for Iron Research (MPIE), Germany" }
                     ].map((exp, i) => (
                       <div key={i} className="relative pl-6">
-                         <div className="absolute -left-[21px] top-1.5 w-3 h-3 bg-slate-400 rounded-full border-2 border-white"></div>
-                        <span className="text-sm font-bold text-slate-500 block mb-1">{exp.year}</span>
+                         <div className={`absolute -left-[21px] top-1.5 w-3 h-3 rounded-full border-2 border-white ${exp.current ? 'bg-primary-600 ring-4 ring-primary-100' : 'bg-slate-400'}`}></div>
+                        <span className={`text-sm font-bold block mb-1 ${exp.current ? 'text-primary-700' : 'text-slate-500'}`}>{exp.year}</span>
                         <h4 className="text-lg font-semibold text-slate-900">{exp.role}</h4>
                         <p className="text-slate-600">{exp.loc}</p>
                       </div>
@@ -185,7 +189,7 @@ export const People: React.FC = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-serif font-bold text-slate-900 relative inline-block">
               Graduate Students
-              <span className="absolute -bottom-3 left-0 w-full h-1.5 bg-primary-500 rounded-full"></span>
+              <span className="absolute -bottom-3 left-0 w-full h-1.5 bg-primary-600 rounded-full"></span>
             </h2>
             <p className="text-slate-500 mt-6 max-w-2xl mx-auto">
               Ph.D. and M.S. students leading advanced research in superalloys, additive manufacturing, and AI-driven materials analysis.
@@ -219,8 +223,8 @@ export const People: React.FC = () => {
 
                   <div className="p-4 flex-grow flex flex-col justify-center min-w-0">
                     <h3 className="text-lg font-bold text-slate-900 leading-tight mb-0.5 truncate">{student.name}</h3>
-                    <div className="text-[10px] font-bold text-purple-600 uppercase tracking-wide mb-2 flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-purple-500 inline-block"></span>
+                    <div className="text-[10px] font-bold text-primary-700 uppercase tracking-wide mb-2 flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-600 inline-block"></span>
                       Ph.D. Student
                     </div>
                     
@@ -242,7 +246,7 @@ export const People: React.FC = () => {
                     <div className="mt-auto pt-2 border-t border-slate-50">
                       <a
                         href={`mailto:${student.email}`}
-                        className="text-xs text-slate-400 hover:text-purple-600 flex items-center gap-1.5 transition-colors group-hover:text-purple-600"
+                        className="text-xs text-slate-400 hover:text-primary-700 flex items-center gap-1.5 transition-colors group-hover:text-primary-700"
                       >
                         <Mail size={12} className="shrink-0" />
                         <span className="truncate">{student.email}</span>
@@ -281,8 +285,8 @@ export const People: React.FC = () => {
 
                   <div className="p-4 flex-grow flex flex-col justify-center min-w-0">
                     <h3 className="text-lg font-bold text-slate-900 leading-tight mb-0.5 truncate">{student.name}</h3>
-                    <div className="text-[10px] font-bold text-primary-600 uppercase tracking-wide mb-2 flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary-500 inline-block"></span>
+                    <div className="text-[10px] font-bold text-gold-700 uppercase tracking-wide mb-2 flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold-500 inline-block"></span>
                       M.S. Student
                     </div>
                     
@@ -304,7 +308,7 @@ export const People: React.FC = () => {
                     <div className="mt-auto pt-2 border-t border-slate-50">
                       <a
                         href={`mailto:${student.email}`}
-                        className="text-xs text-slate-400 hover:text-primary-600 flex items-center gap-1.5 transition-colors group-hover:text-primary-600"
+                        className="text-xs text-slate-400 hover:text-gold-700 flex items-center gap-1.5 transition-colors group-hover:text-gold-700"
                       >
                         <Mail size={12} className="shrink-0" />
                         <span className="truncate">{student.email}</span>
