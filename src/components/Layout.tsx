@@ -20,12 +20,20 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </motion.main>
       
-      <footer className="bg-white border-t border-gray-200 py-12 mt-24">
+      <footer className="bg-white border-t-2 border-primary-600 py-12 mt-24">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-xl font-serif font-bold text-primary-900 mb-2">ADAM LAB</h2>
-          <p className="text-gray-500 text-sm mb-6">AI Analysis & Defense Aerospace Materials</p>
+          <h2 className="text-xl font-serif font-bold text-primary-700 mb-2">SMD LAB</h2>
+          <p className="text-gray-500 text-sm mb-1">Sustainable Materials Design</p>
+          <p className="text-gray-500 text-sm mb-6">
+            Graduate Institute of Ferrous &amp; Eco Materials Technology (GIFT), POSTECH
+          </p>
+          <p className="text-gray-400 text-xs mb-4 leading-relaxed">
+            77 Cheongam-ro, Nam-gu, Pohang-si, Gyeongsangbuk-do 37673, Republic of Korea
+            <br />
+            (37673) 경상북도 포항시 남구 청암로 77 포항공과대학교 친환경소재대학원
+          </p>
           <div className="text-gray-400 text-xs">
-            © {new Date().getFullYear()} ADAM LAB. All Rights Reserved.
+            © {new Date().getFullYear()} SMD LAB, POSTECH GIFT. All Rights Reserved.
           </div>
         </div>
       </footer>

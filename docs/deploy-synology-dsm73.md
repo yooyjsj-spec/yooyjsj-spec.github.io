@@ -50,7 +50,7 @@ NAS에서는 **File Station**과 **Container Manager**만 사용합니다.
 
 - `Dockerfile`, `docker-compose.yml`, `package.json`, `package-lock.json`, `src`, `public`, `vite.config.ts` 등 (클론한 저장소 그대로)
 
-**ZIP으로 올리는 경우:** PC에서 그 폴더를 통째로 압축합니다. DSM에서 압축을 풀면 **한 단계 안에** `docker-compose.yml`과 `Dockerfile`이 보여야 합니다. (압축을 풀었을 때 `…/adam-lab/docker-compose.yml`처럼 바로 보이면 OK. 그 안에 또 폴더만 있고 그 안에 파일이 들어 있으면 Container Manager에서 경로를 잘못 잡기 쉽습니다.)
+**ZIP으로 올리는 경우:** PC에서 그 폴더를 통째로 압축합니다. DSM에서 압축을 풀면 **한 단계 안에** `docker-compose.yml`과 `Dockerfile`이 보여야 합니다. (압축을 풀었을 때 `…/smd-lab/docker-compose.yml`처럼 바로 보이면 OK. 그 안에 또 폴더만 있고 그 안에 파일이 들어 있으면 Container Manager에서 경로를 잘못 잡기 쉽습니다.)
 
 #### 2) File Station으로 NAS에 업로드
 
@@ -58,7 +58,7 @@ NAS에서는 **File Station**과 **Container Manager**만 사용합니다.
 2. Container Manager가 읽을 수 있는 **공유 폴더**를 고릅니다. 예: `docker`, `web` 등 (미리 만들어 두거나 기존 폴더 사용).
 3. **업로드**로 ZIP을 올리거나, 폴더째 드래그해 업로드합니다.
 4. ZIP이면 File Station에서 **압축 풀기**로 같은 공유 폴더 안에 풉니다.
-5. 최종적으로 예를 들어 `docker/adam-lab/docker-compose.yml` 처럼 **Compose 파일이 들어 있는 폴더의 경로**를 기억해 둡니다.
+5. 최종적으로 예를 들어 `docker/smd-lab/docker-compose.yml` 처럼 **Compose 파일이 들어 있는 폴더의 경로**를 기억해 둡니다.
 
 경로에 **한글·공백·특수문자**가 많으면 도구마다 문제가 날 수 있어, 영문·숫자 위주의 짧은 폴더 이름을 권장합니다.
 
@@ -87,10 +87,10 @@ Compose를 쓰지 않고, 이미지를 직접 빌드·가져와 **컨테이너**
 
 ```bash
 cd /path/to/yooyjsj-spec.github.io
-docker build -t adam-lab-web:latest .
+docker build -t smd-lab-web:latest .
 ```
 
-태그는 본인 환경에 맞게 바꿉니다 (예: `docker.io/내계정/adam-lab-web:0.1.0`).
+태그는 본인 환경에 맞게 바꿉니다 (예: `docker.io/내계정/smd-lab-web:0.1.0`).
 
 ### 2) 이미지를 NAS로 전달하는 두 가지 경로
 
@@ -106,10 +106,10 @@ docker build -t adam-lab-web:latest .
 로컬에서:
 
 ```bash
-docker save -o adam-lab-web.tar adam-lab-web:latest
+docker save -o smd-lab-web.tar smd-lab-web:latest
 ```
 
-생성된 `adam-lab-web.tar`를 **File Station**으로 원하는 공유 폴더에 업로드한 뒤, **Container Manager** → **이미지** → **추가** → **파일에서 추가**에서 그 경로의 tar를 선택해 가져옵니다.
+생성된 `smd-lab-web.tar`를 **File Station**으로 원하는 공유 폴더에 업로드한 뒤, **Container Manager** → **이미지** → **추가** → **파일에서 추가**에서 그 경로의 tar를 선택해 가져옵니다.
 
 ### 3) Container Manager에서 컨테이너 생성
 
@@ -145,7 +145,7 @@ npm run build
 
 ### 2) `dist`를 File Station으로 NAS에 업로드
 
-PC에서 `dist` 폴더를 통째로 ZIP으로 묶거나 폴더 그대로 **File Station**에 올립니다. 예: 공유 폴더 `web` 아래 `adam-lab-dist/dist/` 처럼, 나중에 Container Manager에서 고르기 쉬운 경로에 둡니다.
+PC에서 `dist` 폴더를 통째로 ZIP으로 묶거나 폴더 그대로 **File Station**에 올립니다. 예: 공유 폴더 `web` 아래 `smd-lab-dist/dist/` 처럼, 나중에 Container Manager에서 고르기 쉬운 경로에 둡니다.
 
 ### 3) Container Manager에서 컨테이너 만들기
 

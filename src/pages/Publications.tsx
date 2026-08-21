@@ -1,9 +1,9 @@
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Layout } from '../components/Layout';
 import { PublicationSearchBar } from '../components/PublicationSearchBar';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, BookOpen, Award, Calendar, ChevronLeft, ChevronRight, Users, Search } from 'lucide-react';
+import { ExternalLink, BookOpen, Award, Calendar, Loader2, Users, Search } from 'lucide-react';
 import { journalData } from '../data/journals';
 import { patentData } from '../data/asset_patents';
 import { PUBLICATION_SEARCH_ASSET } from '../data/asset_publication_search';
@@ -16,13 +16,14 @@ export const Publications: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>('journals');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Pagination State
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  // Infinite Scroll State (10개씩 로딩)
+  const itemsPerLoad = 10;
+  const [visibleCount, setVisibleCount] = useState(itemsPerLoad);
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
-  // Reset pagination when tab or search changes
+  // Reset visible items when tab or search changes
   useEffect(() => {
-    setCurrentPage(1);
+    setVisibleCount(itemsPerLoad);
   }, [activeTab, searchQuery]);
 
   // Determine which dataset to use
@@ -58,16 +59,31 @@ export const Publications: React.FC = () => {
     });
   }, [activeTab, searchQuery]);
 
-  // Pagination Logic
-  const totalPages = Math.ceil(currentDataList.length / itemsPerPage);
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = currentDataList.slice(indexOfFirstItem, indexOfLastItem);
+  // Infinite Scroll Logic
+  const currentItems = currentDataList.slice(0, visibleCount);
+  const hasMore = visibleCount < currentDataList.length;
 
-  const handlePageChange = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  // Load the next batch when the sentinel scrolls into view.
+  // visibleCount을 deps에 포함해 sentinel이 계속 보이는 경우에도 다음 배치가 이어서 로드되도록 한다.
+  useEffect(() => {
+    if (!hasMore) return;
+    const node = sentinelRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisibleCount((prev) =>
+            Math.min(prev + itemsPerLoad, currentDataList.length)
+          );
+        }
+      },
+      { rootMargin: '200px' }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [hasMore, visibleCount, currentDataList.length]);
 
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -165,7 +181,7 @@ export const Publications: React.FC = () => {
                     : pub.doi;
                   return (
                     <motion.div
-                      key={`${activeTab}-${currentPage}-${index}`}
+                      key={`${activeTab}-${index}`}
                       variants={itemVariants}
                       className="bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-soft-hover border border-gray-100 transition-all duration-300 group"
                     >
@@ -263,48 +279,19 @@ export const Publications: React.FC = () => {
               )}
             </div>
 
-            {/* Pagination Controls */}
-            {totalPages > 1 && (
-              <div className="flex items-center justify-center gap-2 pt-8">
-                <button
-                  onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
-                  disabled={currentPage === 1}
-                  className={`w-10 h-10 flex items-center justify-center rounded-lg border transition-all duration-200
-                    ${currentPage === 1 
-                      ? 'border-gray-100 text-gray-300 cursor-not-allowed' 
-                      : 'border-gray-200 text-gray-600 hover:bg-white hover:border-primary-500 hover:text-primary-600 shadow-sm hover:shadow'
-                    }`}
-                >
-                  <ChevronLeft size={20} />
-                </button>
-                
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((number) => (
-                  <button
-                    key={number}
-                    onClick={() => handlePageChange(number)}
-                    className={`w-10 h-10 flex items-center justify-center rounded-lg font-bold text-sm transition-all duration-200
-                      ${currentPage === number
-                        ? 'bg-primary-600 text-white shadow-md transform scale-105' 
-                        : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300'
-                      }`}
-                  >
-                    {number}
-                  </button>
-                ))}
-
-                <button
-                  onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
-                  disabled={currentPage === totalPages}
-                  className={`w-10 h-10 flex items-center justify-center rounded-lg border transition-all duration-200
-                    ${currentPage === totalPages 
-                      ? 'border-gray-100 text-gray-300 cursor-not-allowed' 
-                      : 'border-gray-200 text-gray-600 hover:bg-white hover:border-primary-500 hover:text-primary-600 shadow-sm hover:shadow'
-                    }`}
-                >
-                  <ChevronRight size={20} />
-                </button>
+            {/* Infinite Scroll Sentinel */}
+            {hasMore && (
+              <div ref={sentinelRef} className="flex items-center justify-center py-10">
+                <Loader2 size={24} className="animate-spin text-gray-400" />
               </div>
             )}
+
+            {!hasMore && currentDataList.length > itemsPerLoad && (
+              <p className="text-center text-sm text-gray-400 py-10">
+                모든 항목을 불러왔습니다. ({currentDataList.length})
+              </p>
+            )}
+
           </motion.div>
         </AnimatePresence>
       </div>

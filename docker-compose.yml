@@ -3,7 +3,7 @@
 services:
   web:
     build: .
-    image: adam-lab-web:latest
+    image: smd-lab-web:latest
     ports:
       - "8080:80"
     restart: unless-stopped

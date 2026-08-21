@@ -23,15 +23,25 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 h-20 font-sans">
+      {/* POSTECH Red hairline — carries the BI onto every page */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-primary-600" />
       <div className="max-w-7xl mx-auto px-6 h-full">
         <div className="flex justify-between items-center h-full">
           {/* Logo / Home Link - Prominent Top Left */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-3 group">
              <img 
                src={ASSETS.LOGO} 
-               alt="ADAM LAB" 
+               alt="SMD Lab" 
                className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
              />
+             {/* Affiliation lockup. Drop the official POSTECH wordmark into
+                 public/images/ and swap this block for an <img> if preferred. */}
+             <span className="hidden sm:flex items-center gap-3 pl-3 border-l border-gray-200">
+               <span className="leading-tight">
+                 <span className="block text-[13px] font-bold tracking-wide text-primary-700">POSTECH</span>
+                 <span className="block text-[10px] font-medium tracking-wide text-gray-500">GIFT</span>
+               </span>
+             </span>
           </Link>
 
           {/* Desktop Nav */}
